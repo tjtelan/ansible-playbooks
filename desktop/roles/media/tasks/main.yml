@@ -1,0 +1,21 @@
+---
+#- name: Steam client
+#  pacman: name=steam
+- name: Video players
+  pacman: name=vlc state=present
+- name: Audio players
+  pacman: name=mpd state=present
+  pacman: name=pianobar state=present
+- name: Sound editing
+  pacman: name=audacity state=present
+- name: Graphics editors
+  pacman: name=gimp state=present
+  pacman: name=inkscape state=present
+- name: Codecs
+  pacman: name=x264 state=present
+  pacman: name=x265 state=present
+  pacman: name=flac state=present
+  pacman: name=mpv state=present
+- name: Wacom drivers
+  pacman: name=xf86-input-wacom state=present
+
