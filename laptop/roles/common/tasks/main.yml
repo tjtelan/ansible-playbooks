@@ -1,0 +1,65 @@
+---
+- name: Install Sudo
+  pacman: name=sudo state=present
+
+- name: Install wireless networking
+  pacman: name=iw state=present
+  pacman: name=wpa_supplicant state=present
+# For wifi-menu
+  pacman: name=dialog state=present
+
+- name: Install shells, bash and zsh
+  pacman: name=zsh state=present
+  pacman: name=bash state=present
+
+# Disable PC Speaker
+- name: Blacklist pcspkr
+  copy: >
+        src=nobeep.conf dest=/etc/modprobe.d/nobeep.conf mode=0444
+        owner=root group=root
+- name: Unload pcspkr module
+  modprobe: name=pcspkr state=absent
+
+# Sound
+- name: ALSA utils
+  pacman: name=alsa-utils state=present
+
+# Install vim
+- name: Install editor, vim
+  pacman: name=vim state=present
+
+- name: Install terminal multiplexer, tmux
+  pacman: name=tmux state=present
+
+# Install (un)archivers
+- name: .zip support
+  pacman: name=zip state=present
+  pacman: name=unzip state=present
+- name: .7z support
+  pacman: name=p7zip state=present
+- name: .rar support (uncompress only)
+  pacman: name=unrar state=present
+- name: .xz support
+  pacman: name=xz state=present
+
+# Install fuse
+- name: FUSE
+  pacman: name=fuse state=present
+
+# Protocol clients
+- name: NFS client & utils
+  pacman: name=nfs-utils state=present
+- name: SMB client
+  pacman: name=smbclient state=present
+- name: CIFS utils
+  pacman: name=cifs-utils state=present
+- name: SSHFS
+  pacman: name=sshfs state=present
+
+# Install filesystem utilities
+- name: NTFS utilities
+  pacman: name=ntfs-3g state=present
+- name: EncFS
+  pacman: name=encfs state=present
+- name: DOS utilities
+  pacman: name=dosfstools state=present

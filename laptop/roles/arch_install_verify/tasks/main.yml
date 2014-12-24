@@ -1,0 +1,17 @@
+---
+- name: Verify hostname file exists
+  file: path=/etc/hostname owner=root group=root mode=0644
+- name: Set hardware clock to UTC
+  command: /usr/bin/hwclock --systohc --utc creates=/etc/localtime
+- name: Set time zone
+  file: >
+        src=/usr/share/zoneinfo/America/Los_Angeles dest=/etc/localtime
+        owner=root group=root state=link
+- name: Set locale
+  locale_gen: name=en_US.UTF-8 state=present
+- name: Set locale preferences
+  copy: src=locale.conf dest=/etc/locale.conf owner=root group=root mode=0644
+- name: Set virtual console preferences
+  copy: >
+        src=vconsole.conf dest=/etc/vconsole.conf owner=root group=root
+        mode=0644

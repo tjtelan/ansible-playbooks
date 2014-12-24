@@ -1,0 +1,26 @@
+---
+# Display manager
+- name: Install display manager, slim
+  pacman: name=slim state=present
+- name: Start and enable display manager service
+  service: name=slim enabled=yes state=started
+
+# Window manager
+- name: Install awesomeWM
+  pacman: name=awesome state=present
+
+# X server button presses
+- name: Read raw key presses in X, xev
+  pacman: name=xorg-xev state=present
+
+# XScreensaver
+- name: Install Xscreensaver
+  pacman: name=xscreensaver state=present
+
+# Redshift
+- name: Install redshift
+  pacman: name=redshift state=present
+
+# backlight
+- name: Install backlight controls
+  pacman: name=xorg-xbacklight state=present
