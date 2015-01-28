@@ -1,0 +1,14 @@
+---
+- name: Install managed python install
+  homebrew: name=python state=present
+
+- name: Install midnight commander
+  homebrew: name=mc state=present
+
+- name: Install iTerm
+  homebrew_cask: name=iterm2 state=present
+
+- name: Install Node.js
+  homebrew: name=nodejs state=present
+
+
