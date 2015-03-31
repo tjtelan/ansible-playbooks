@@ -1,4 +1,7 @@
 ---
+- name: Update everything in homebrew
+  homebrew: update_homebrew=yes upgrade_all=yes
+
 - name: Install managed python install
   homebrew: name=python state=present
 
@@ -11,4 +14,11 @@
 - name: Install Node.js
   homebrew: name=nodejs state=present
 
+- name: Install OSX FUSE
+  homebrew_cask: name=osxfuse state=present
 
+- name: Install sshfs
+  homebrew_cask: name=sshfs state=present
+
+- name: Install Atom.io editor
+  homebrew_cask: name=atom state=present
