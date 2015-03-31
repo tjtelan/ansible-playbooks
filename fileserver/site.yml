@@ -1,0 +1,9 @@
+---
+- name: Set up FreeBSD 10 box as fileserver
+  hosts: fileserver
+  remote_user: telant
+  sudo: yes
+
+  roles:
+    - common
+    - osx_timemachine_support

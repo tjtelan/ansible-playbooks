@@ -1,0 +1,23 @@
+---
+- name: Install Sudo
+  pkgng: name=sudo state=present
+
+- name: Install vim
+  pkgng: name=vim state=present
+
+- name: Install shells, Bash & Z shell
+  pkgng: name=bash state=present
+  pkgng: name=zsh state=present
+
+- name: Update rc.conf file
+  copy: >
+        src=rc.conf dest=/etc/rc.conf mode=0444
+        owner=root group=wheel
+
+- name: Update nsswitch.conf
+  copy: >
+        src=nsswitch.conf dest=/etc/nsswitch.conf mode=0644
+        owner=root group=wheel
+
+- name: Install SSHFS
+  pkgng: name=fusefs-sshfs state=present
