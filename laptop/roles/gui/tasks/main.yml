@@ -24,3 +24,7 @@
 # backlight
 - name: Install backlight controls
   pacman: name=xorg-xbacklight state=present
+
+# Clipboard syncronizer
+- name: Install autocutsel, clipboard sync
+  pacman: name=autocutsel state=present

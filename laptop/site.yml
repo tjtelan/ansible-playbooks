@@ -1,8 +1,9 @@
 ---
 - name: Set up laptop
-  hosts: 127.0.0.1
-  connection: local
-  user: root
+  hosts: laptop
+  remote_user: telant
+  sudo: yes
+  gather_facts: false
 
 ## This assumes that install has made it completely through.
 # However, mistakes can be made, correct any of them
@@ -13,3 +14,4 @@
     - gui
     - development
     - aur_helper
+    - aur

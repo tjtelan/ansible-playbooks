@@ -43,3 +43,10 @@
   pacman: name=scrot state=present
   pacman: name=recordmydesktop state=present
   pacman: name=gtk-recordmydesktop state=present
+
+- name: Program language
+  pacman: name=python2 state=present
+#  pacman: name='python2-pip' state=present
+
+#- name: Windows automation tools
+#  pip: name=pywinrm state=present
