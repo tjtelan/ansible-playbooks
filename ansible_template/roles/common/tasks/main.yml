@@ -1,0 +1,4 @@
+---
+- name: Example task
+  command: /usr/bin/echo Test
+
