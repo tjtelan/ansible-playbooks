@@ -2,22 +2,38 @@
 - name: Install Sudo
   pkgng: name=sudo state=present
 
+#- name: Enable sudo user in sudoers
+#  lineinfile:
+#    state: present
+#    dest: /usr/local/etc/sudoers
+#    regexp: "^# %sudo"
+#    line: "%sudo ALL=(ALL) ALL"
+#    validate: "visudo -cf %s"
+
 - name: Install vim
   pkgng: name=vim state=present
 
-- name: Install shells, Bash & Z shell
-  pkgng: name=bash state=present
+- name: Install Z shell
   pkgng: name=zsh state=present
 
-- name: Update rc.conf file
-  copy: >
-        src=rc.conf dest=/etc/rc.conf mode=0444
-        owner=root group=wheel
+- name: Install Bash shell
+  pkgng: name=bash state=present
 
-- name: Update nsswitch.conf
-  copy: >
-        src=nsswitch.conf dest=/etc/nsswitch.conf mode=0644
-        owner=root group=wheel
+#- name: Update rc.conf file
+#  copy: >
+#        src=rc.conf dest=/etc/rc.conf mode=0444
+#        owner=root group=wheel
+
+#- name: Update nsswitch.conf
+#  copy: >
+#        src=nsswitch.conf dest=/etc/nsswitch.conf mode=0644
+#        owner=root group=wheel
 
 - name: Install SSHFS
   pkgng: name=fusefs-sshfs state=present
+
+- name: Install tmux
+  pkgng: name=tmux state=present
+
+- name: Install base64
+  pkgng: name=base64 state=present

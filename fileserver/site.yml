@@ -1,9 +1,10 @@
 ---
+# Don't use this anymore. Break up common into more traceable requirements
 - name: Set up FreeBSD 10 box as fileserver
   hosts: fileserver
-  remote_user: telant
-  sudo: yes
+#  remote_user: telant
+#  sudo: yes
 
   roles:
     - common
-    - osx_timemachine_support
+    - access
