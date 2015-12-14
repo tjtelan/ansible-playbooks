@@ -1,0 +1,15 @@
+---
+- name: Install Plex Media Server
+  pkgng:
+    name: plexmediaserver
+    state: present
+- name: Start plexmediaserver service (and enable at boot)
+  service:
+    name: plexmediaserver
+    enabled: yes
+    state: started
+- name: Add Plex user to the nasuser group
+  user:
+    name: plex
+    groups: nasuser
+    append: yes
