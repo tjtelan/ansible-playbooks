@@ -1,16 +1,5 @@
 ---
-- name: Set up laptop
-  hosts: desktop
-  user: root
-
-## This assumes that install has made it completely through.
-# However, mistakes can be made, correct any of them
-
+- hosts: home
+  sudo: yes
   roles:
-    - arch_install_verify
-    - common
-    - gui
-    - development
-    - aur_helper
-    - office
-    - media
+    - { role: base, tags: ['base'] }

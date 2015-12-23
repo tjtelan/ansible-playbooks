@@ -1,0 +1,30 @@
+---
+- name: Install OpenSSH
+  pacman:
+    name: openssh
+    state: present
+  tags:
+    - ssh
+
+- name: Enable SSH service
+  service:
+    name: sshd
+    enabled: yes
+    state: started
+  when: ssh.enable_sshd == True
+  tags:
+    - ssh 
+
+- name: Install sshfs
+  pacman:
+    name: sshfs
+    state: present
+  tags:
+    - ssh
+
+- name: Install autossh
+  pacman:
+    name: autossh
+    state: present
+  tags:
+    - ssh

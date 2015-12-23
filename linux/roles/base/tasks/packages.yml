@@ -1,0 +1,44 @@
+---
+- name: Install universal base packages
+  pacman:
+    name: '{{ item }}'
+    state: present
+  with_items: '{{ base_packages }}'
+  tags:
+    - packages
+- name: Create AUR directory
+  file:
+    path: /home/{{ user.name }}/{{ aur.dir }}
+    state: directory
+    owner: '{{ user.name }}'
+    group: '{{ user.group }}'
+  tags:
+    - aur
+    - packages
+- name: Install aur package dependencies
+  pacman:
+    name: '{{ item }}'
+    state: present
+  with_items: '{{ aur.build_dependencies }}'
+  tags:
+    - aur
+    - packages
+- name: Install cower
+  environment:
+    PATH: /usr/bin/core_perl:{{ ansible_env.PATH }}
+  aur:
+    name: cower
+    user: '{{ user.name }}'
+    skip_pgp: yes
+  tags:
+    - aur
+    - packages
+- name: Install aur packages
+  aur:
+    name: '{{ item }}'
+    user: '{{ user.name }}'
+    skip_pgp: yes
+  with_items: '{{ aur.packages }}'
+  tags:
+    - aur
+    - packages
