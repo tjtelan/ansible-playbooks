@@ -5,12 +5,6 @@
 - name: Install Sudo
   pacman: name=sudo state=present
 
-- name: Install wireless networking
-  pacman: name=iw state=present
-  pacman: name=wpa_supplicant state=present
-# For wifi-menu
-  pacman: name=dialog state=present
-
 - name: Install shells, bash and zsh
   pacman: name=zsh state=present
   pacman: name=bash state=present

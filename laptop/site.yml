@@ -1,9 +1,7 @@
 ---
 - name: Set up laptop
   hosts: laptop
-  remote_user: telant
   sudo: yes
-  gather_facts: false
 
 ## This assumes that install has made it completely through.
 # However, mistakes can be made, correct any of them
@@ -11,6 +9,7 @@
   roles:
     - arch_install_verify
     - common
+    - wireles-networking
     - gui
     - development
     - aur_helper
