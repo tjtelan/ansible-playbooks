@@ -1,9 +1,0 @@
----
-- name: Template
-  hosts: 
-  remote_user: 
-  sudo: yes 
-  gather_facts: false
-
-  roles:
-    - common
