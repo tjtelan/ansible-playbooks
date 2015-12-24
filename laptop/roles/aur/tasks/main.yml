@@ -1,5 +1,0 @@
-# Android
-# HFSProgs
-- name: Install atom.io editor
-  sudo: no
-  packer: name=atom-editor state=present
