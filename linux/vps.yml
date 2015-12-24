@@ -1,0 +1,5 @@
+---
+- hosts: cloud
+  sudo: yes
+  roles:
+    - { role: base, tags: ['base'] }

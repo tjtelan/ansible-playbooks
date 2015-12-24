@@ -1,0 +1,46 @@
+---
+hostname: porygon
+
+user:
+  name: telant
+  group: users
+  shell: /usr/bin/zsh
+
+ssh:
+  port: 22
+  enable_sshd: True
+
+editors:
+  - vim
+
+base_packages:
+  - tmux
+  - git
+  - gnupg
+  - rsync
+  - zip
+  - unzip
+  - unrar
+  - p7zip
+  - bc
+  - lsof
+  - htop
+  - iftop
+
+filesystem_packages:
+  - dosfstools
+  - hfsprogs
+  - ntfs-3g
+  - encfs
+  - fuse
+
+aur:
+  dir: aur
+  build_dependencies:
+    - curl
+    - openssl
+    - pacman
+    - yajl
+    - perl
+  packages:
+    - atom-editor
