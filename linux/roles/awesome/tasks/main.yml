@@ -1,0 +1,14 @@
+---
+- name: Install AwesomeWM
+  pacman:
+    name: awesome
+    state: present
+  tags:
+    - awesome
+    - windowmanager
+- name: Install Xephyr
+  pacman:
+    name: xorg-server-xephry
+    state: present
+  tags:
+    - awesome
