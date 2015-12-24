@@ -1,0 +1,35 @@
+---
+- name: Install Xorg
+  pacman:
+    name: xorg-server
+    state: present
+
+- name: Install Xinit
+  pacman:
+    name: xorg-xinit
+    state: present
+
+- name: Install xmodmap
+  pacman:
+    name: xorg-xmodmap
+    state: present
+
+- name: Install xev
+  pacman:
+    name: xorg-xev
+    state: present
+
+- name: Install xorg-sessreg
+  pacman:
+    name: xorg-sessreg
+
+    state: present
+- name: Install video driver(s)
+  pacman:
+    name: '{{ item }}'
+    state: present
+  with_items: '{{ video_drivers }}'
+
+- include: slim.yml
+- include: urxvt.yml
+- include: autocutsel.yml
