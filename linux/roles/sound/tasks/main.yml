@@ -1,0 +1,7 @@
+---
+- name: Install alsa-utils
+  pacman:
+    name: alsa-utils
+    state: present
+  tags:
+    - sound
