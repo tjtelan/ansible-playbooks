@@ -1,0 +1,8 @@
+---
+- name: Install chromium
+  pacman:
+    name: chromium
+    state: present
+  tags:
+    - browsers
+    - chromium

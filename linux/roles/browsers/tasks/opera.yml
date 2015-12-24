@@ -1,0 +1,8 @@
+---
+- name: Install opera
+  pacman:
+    name: opera
+    state: present
+  tags:
+    - browsers
+    - opera
