@@ -1,0 +1,14 @@
+---
+- name: Install netcat
+  pacman:
+    name: gnu-netcat
+    state: present
+  tags:
+    - networking
+#- name: Install OpenVPN
+#  pacman:
+#    name: openvpn
+#    state: present
+#    - networking
+
+# Add in template for netctl ethernet dhcp. Add in configurables for ip link
