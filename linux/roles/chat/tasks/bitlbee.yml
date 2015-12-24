@@ -1,0 +1,10 @@
+---
+- name: Install bitlbee
+  pacman:
+    name: bitlbee
+    state: present
+  tags:
+    - chat
+    - bitlbee
+
+# Still need to configure this

@@ -1,0 +1,7 @@
+---
+- name: Install irssi
+  pacman:
+    name: irssi
+    state: present
+  tags:
+    - chat
