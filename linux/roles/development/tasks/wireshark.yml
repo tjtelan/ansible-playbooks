@@ -1,0 +1,9 @@
+---
+- name: Install wireshark
+  pacman:
+    name: wireshark-gtk
+    state: present
+  tags:
+    - development
+    - networking
+    - wireshark

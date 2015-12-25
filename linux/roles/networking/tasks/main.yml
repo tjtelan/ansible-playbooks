@@ -1,5 +1,7 @@
 ---
 - include: netcat.yml
+- include: nmap.yml
+- include: traceroute.yml
 - include: openvpn.yml
 - include: dhcp.yml
 - include: proxychains.yml

@@ -1,0 +1,8 @@
+---
+- name: Install traceroute
+  pacman:
+    name: traceroute
+    state: present
+  tags:
+    - networking
+    - traceroute

@@ -1,45 +1,13 @@
 ---
-- name: Install browsers
-  pacman: name=firefox state=present
-  pacman: name=chromium state=present
-  pacman: name=opera state=present
+- include: scm.yml
+- include: wireshark.yml
+- include: vagrant.yml
+- include: virtualbox.yml
 
-- name: Install text editor
-  pacman: name=vim state=present
-
-- name: Console multiplexer
-  pacman: name=tmux state=present
-
-- name: Process viewer
-  pacman: name=htop state=present
-
-- name: Install revision control
-  pacman: name=git state=present
-  pacman: name=subversion state=present
-  pacman: name=mercurial state=present
-
-- name: Diagram drawing tools
-  pacman: name=dia state=present
-  pacman: name=xmind state=present
-  pacman: name=freemind state=present
-
-- name: Network debugging tools
-  pacman: name=nmap state=present
-  pacman: name=traceroute state=present
-  pacman: name=wireshark-gtk state=present
-  pacman: name=iftop state=present
-
-- name: VMs/containers
-  pacman: name=docker state=present
-  pacman: name=vagrant state=present
-  pacman: name=virtualbox state=present
-  pacman: name=virtualbox-host-modules state=present
-  pacman: name=virtualbox-guest-utils state=present
-
-- name: IT automation
-  pacman: name=ansible state=present
-
-- name: Screen recording (still/video)
-  pacman: name=scrot state=present
-  pacman: name=recordmydesktop state=present
-  pacman: name=gtk-recordmydesktop state=present
+#- name: IT automation
+#  pacman: name=ansible state=present
+#
+#- name: Screen recording (still/video)
+#  pacman: name=scrot state=present
+#  pacman: name=recordmydesktop state=present
+#  pacman: name=gtk-recordmydesktop state=present

@@ -1,0 +1,9 @@
+
+---
+- name: Install nmap
+  pacman:
+    name: nmap
+    state: present
+  tags:
+    - networking
+    - nmap
