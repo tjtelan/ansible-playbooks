@@ -10,6 +10,9 @@ ssh:
   port: 22
   enable_sshd: True
 
+video_drivers:
+  - xf86-video-ati
+
 editors:
   - vim
 
@@ -18,14 +21,16 @@ base_packages:
   - git
   - gnupg
   - rsync
-  - zip
-  - unzip
-  - unrar
-  - p7zip
   - bc
   - lsof
   - htop
   - iftop
+
+archiver_packages:
+  - zip
+  - unzip
+  - unrar
+  - p7zip
 
 filesystem_packages:
   - dosfstools
@@ -33,6 +38,30 @@ filesystem_packages:
   - ntfs-3g
   - encfs
   - fuse
+  - sshfs
+  - mc
+  - sshfs
+
+audio_packages:
+  - lame
+  - flac
+  - mpd
+  - pianobar
+  - audacity
+
+video_packages:
+  - vlc
+  - mpv
+  - x264
+  - x265
+
+graphics_packages:
+  - gimp
+  - inkscape
+  - dia
+  - xmind
+  - freemind
+  - xf86-input-wacom
 
 aur:
   dir: aur
