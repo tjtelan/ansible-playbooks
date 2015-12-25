@@ -1,0 +1,7 @@
+---
+- name: Install docker
+  pacman:
+    name: docker
+    state: present
+  tags:
+    - docker
