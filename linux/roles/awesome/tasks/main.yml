@@ -8,7 +8,7 @@
     - windowmanager
 - name: Install Xephyr
   pacman:
-    name: xorg-server-xephry
+    name: xorg-server-xephyr
     state: present
   tags:
     - awesome
