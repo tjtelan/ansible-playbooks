@@ -1,10 +1,19 @@
 ---
 - name: Enable multilib group in pacman repo
-  lineinfile:
+  replace:
     dest: '/etc/pacman.conf'
-    state: present
-    regexp: '^\[multilib\]'
-    line: '[multilib]\nInclude = /etc/pacman.d/mirrorlist'
+    regexp: '^#\[multilib\]$^Include = /etc/pacman.d/mirrorlist$'
+    replace: "[multilib]\nInclude = /etc/pacman.d/mirrorlist"
+
+#  lineinfile:
+#    dest: '/etc/pacman.conf'
+#    state: present
+#    regexp: '^#\[multilib\]'
+#    line: "[multilib]\nInclude = /etc/pacman.d/mirrorlist"
+
+#    line: '{{ item.line }}'
+#  with_items:
+#    - { line: '[multilib]' }
+#    - { line: 'Include = /etc/pacman.d/mirrorlist' }
   tags:
     - multilib
-
