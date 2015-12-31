@@ -1,4 +1,51 @@
 ---
+
+- name: Install multilib-devel (individually bc ansible-modules-extras/issues/766)
+  pacman:
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - gcc-multilib
+    - lib32-fakeroot
+    - lib32-libltdl
+  tags:
+    - packages
+    - multilib
+
+- name: Install base-devel w/o multilib stuff (individually bc ansible-modules-extras/issues/766)
+  pacman:
+    name: '{{ item }}'
+    state: present
+  with_items:
+   - autoconf
+   - automake
+   - binutils
+   - bison
+#   - fakeroot
+   - file
+   - findutils
+   - flex
+   - gawk
+#   - gcc
+   - gettext
+   - grep
+   - groff
+   - gzip
+   - libtool
+   - m4
+   - make
+   - pacman
+   - patch
+   - pkg-config
+   - sed
+   - sudo
+   - texinfo
+   - util-linux
+   - which
+
+  tags:
+    - packages
+
 - name: Install universal base packages
   pacman:
     name: '{{ item }}'
@@ -6,6 +53,8 @@
   with_items: '{{ base_packages }}'
   tags:
     - packages
+
+
 - name: Create AUR directory
   file:
     path: /home/{{ user.name }}/{{ aur.dir }}
