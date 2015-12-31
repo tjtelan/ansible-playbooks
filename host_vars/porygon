@@ -13,6 +13,9 @@ ssh:
 editors:
   - vim
 
+video_drivers:
+  - xf86-video-vesa
+
 base_packages:
   - tmux
   - git
@@ -43,4 +46,4 @@ aur:
     - yajl
     - perl
   packages:
-    - atom-editor
+    - pacaur
