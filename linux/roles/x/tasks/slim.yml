@@ -10,6 +10,15 @@
   service:
     name: slim.service
     enabled: yes
+    state: started
+  tags:
+    - slim
+
+- name: Enable display manager service
+  service:
+    name: display-manager.service
+    enabled: yes
+    state: started
   tags:
     - slim
 

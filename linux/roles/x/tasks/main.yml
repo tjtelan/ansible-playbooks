@@ -4,26 +4,66 @@
     name: xorg-server
     state: present
 
+- name: Install Xorg utils
+  pacman:
+    name: xorg-server-utils
+    state: present
+
 - name: Install Xinit
   pacman:
     name: xorg-xinit
     state: present
 
+- name: Install Xorg apps (Individually bc ansible-modules-extras/issues/766)
+  pacman:
+#    name: xorg-xapps
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - xorg-bdftopcf
+    - xorg-iceauth
+    - xorg-luit
+    - xorg-mkfontdir
+    - xorg-mkfontscale
+    - xorg-sessreg
+    - xorg-setxkbmap
+    - xorg-smproxy
+    - xorg-x11perf
+    - xorg-xauth
+    - xorg-xbacklight
+    - xorg-xcmsdb
+    - xorg-xcursorgen
+    - xorg-xdpyinfo
+    - xorg-xdriinfo
+    - xorg-xev
+    - xorg-xgamma
+    - xorg-xhost
+    - xorg-xinput
+    - xorg-xkbcomp
+    - xorg-xkbevd
+    - xorg-xkbutils
+    - xorg-xkill
+    - xorg-xlsatoms
+    - xorg-xlsclients
+    - xorg-xmodmap
+    - xorg-xpr
+    - xorg-xprop
+    - xorg-xrandr
+    - xorg-xrdb
+    - xorg-xrefresh
+    - xorg-xset
+    - xorg-xsetroot
+    - xorg-xvinfo
+    - xorg-xwd
+    - xorg-xwininfo
+    - xorg-xwud
+
+ 
 - name: Install xmodmap
   pacman:
     name: xorg-xmodmap
     state: present
 
-- name: Install xev
-  pacman:
-    name: xorg-xev
-    state: present
-
-- name: Install xorg-sessreg
-  pacman:
-    name: xorg-sessreg
-
-    state: present
 - name: Install video driver(s)
   pacman:
     name: '{{ item }}'
