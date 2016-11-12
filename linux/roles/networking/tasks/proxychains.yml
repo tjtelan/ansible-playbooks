@@ -1,8 +1,0 @@
----
-- name: Install proxychains
-  pacman:
-    name: proxychains
-    state: present
-  tags:
-    - networking
-    - proxy

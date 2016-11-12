@@ -1,7 +1,0 @@
----
-- name: Install redshift
-  pacman:
-    name: redshift
-    state: present
-  tags:
-    - redshift

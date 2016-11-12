@@ -1,7 +1,0 @@
----
-- name: Test homebrew with ansible
-  hosts: osx
-  remote_user: ttelan
-
-  roles:
-    - common

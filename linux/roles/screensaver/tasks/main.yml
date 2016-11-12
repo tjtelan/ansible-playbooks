@@ -1,7 +1,0 @@
----
-- name: Install Xscreensaver
-  pacman:
-    name: xscreensaver
-    state: present
-  tags:
-    - screensaver

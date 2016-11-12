@@ -1,7 +1,0 @@
----
-- name: Install libreoffice
-  pacman:
-    name: libreoffice
-    state: present
-  tags:
-    - office

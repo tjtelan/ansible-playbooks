@@ -1,8 +1,0 @@
----
-- name: Install archivers
-  pacman:
-    name: '{{ item }}'
-    state: present
-  with_items: '{{ archiver_packages }}'
-  tags:
-    - archivers
