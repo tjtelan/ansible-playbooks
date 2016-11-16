@@ -1,6 +1,7 @@
 ---
-hostname: porygon
-ansible_host: porygon.mooo.com
+hostname: billspc
+ansible_connection: local
+#ansible_host: 192.168.0.100
 ansible_user: telant
 ansible_python_interpreter: /usr/bin/python2
 
@@ -31,3 +32,20 @@ packages:
   - autossh
   - sshfs
 
+aur:
+  dir: aur
+  build_dependencies:
+    - curl
+    - openssl
+    - pacman
+    - yajl
+    - perl
+  packages:
+    - pacaur
+
+autossh:
+  tunnel_host: porygon
+  tunnel_port: 9000
+  host: localhost
+  host_port: 22
+  

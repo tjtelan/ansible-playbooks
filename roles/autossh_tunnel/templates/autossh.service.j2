@@ -1,0 +1,9 @@
+Description=AutoSSH service for a reverse tunnel from {{ tunnel_hostname }} to {{ host }} port {{ host_port }}
+After=network.target
+
+[Service]
+User={{ tunnel_user }}
+ExecStart=/usr/bin/autossh -M 0 -q -N -T -o ServerAliveInterval=60 -o ServerAliveCountMax=3 {{ tunnel_user }}@{{ tunnel_hostname }} -R {{ tunnel_port }}:{{ host }}:{{ host_port }}
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,31 @@
+---
+#- name: Testing crazy nesting of shit
+#  debug: msg="{{ hostvars[hostvars[inventory_hostname]['autossh']['tunnel_host']]['ansible_host'] }}"
+
+- set_fact:
+    tunnel_user: "{{ hostvars[hostvars[inventory_hostname]['autossh']['tunnel_host']]['ansible_user'] }}"
+    tunnel_hostname: "{{ hostvars[hostvars[inventory_hostname]['autossh']['tunnel_host']]['ansible_host'] }}"
+    tunnel_port: "{{ hostvars[inventory_hostname]['autossh']['tunnel_port'] }}"
+    host: "{{ hostvars[inventory_hostname]['autossh']['host'] }}"
+    host_port: "{{ hostvars[inventory_hostname]['autossh']['host_port'] }}"
+
+#- debug: msg="{{ hostvars[inventory_hostname] }}"
+
+- name: Install autossh service
+  become: yes
+  template:
+    src: autossh.service.j2
+    dest: /etc/systemd/system/autossh.service
+  register: autossh_service
+
+- name: Reload systemctl daemon
+  become: yes
+  shell: systemctl daemon-reload
+  when: autossh_service.changed
+
+- name: Start autossh service and enable on boot
+  become: yes
+  service:
+    name: autossh.service
+    state: started
+    enabled: yes
