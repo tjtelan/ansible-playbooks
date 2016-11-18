@@ -1,0 +1,15 @@
+---
+- name: Create shared group
+  become: yes
+  group:
+    name: "{{ shared_user['group'] }}"
+    gid: "{{ shared_user['gid'] }}"
+    state: present
+
+- name: Create shared user
+  become: yes
+  user:
+    name: "{{ shared_user['name'] }}"
+    uid: "{{ shared_user['uid'] }}"
+    group: "{{ shared_user['group'] }}"
+    home: "{{ shared_user['home'] }}"

@@ -10,6 +10,14 @@ user:
   group: users
   shell: /usr/bin/zsh
 
+shared_user:
+  name: shared
+  uid: 9000
+  group: nas
+  gid: 9000
+  shell: /bin/sh
+  home: /mnt/zdata
+
 packages:
   - openssh
   - python

@@ -31,3 +31,10 @@ packages:
   - autossh
   - sshfs
 
+sshfs_mount:
+  mountpoint: /mnt/zdata
+  user: shared
+  host: localhost
+  private_key: ~/.ssh/id_ecdsa.shared.billspc
+  hostport: 9000
+  hostpath: /mnt/zdata

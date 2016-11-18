@@ -1,0 +1,17 @@
+---
+- name: Enable non-root users to mount fuse fstab entries
+  become: true
+  lineinfile:
+    dest: /etc/fuse.conf
+    regexp: '#.*(user_allow_other)'
+    line: '\1'
+    backrefs: yes
+
+- name: Install sshfs entry through reverse tunnel
+  become: true
+  mount:
+    src: billspc:/mnt/zdata
+    name: /mnt/zdata
+    fstype: fuse.sshfs
+    opts: noauto,x-systemd.automount,_netdev,users,idmap=user,allow_other,reconnect,uid=9000,gid=9000
+    state: mounted

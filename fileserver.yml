@@ -4,14 +4,10 @@
 
 - hosts: fileserver
   roles:
-          #    - packages
+#    - shared_user
+    - packages
     - autossh_tunnel
 
-      #- host: vps
-      #  roles:
-      #    - sshfs_mount
-      #      mount_src: /zdata
-      #      mount_host: localhost 
-      #      mount_port: 9000
-      #      dest: /zdata
-
+- hosts: vps
+  roles:
+    - sshfs_mount
